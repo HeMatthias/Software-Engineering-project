@@ -4,3 +4,14 @@
 #define TEMP_CS     26
 #define TEMP_MOSI   19
 #define TEMP_MISO   21
+
+// initialisate the temperature sensor
+void init_temp()
+{
+
+}
+
+int main()
+{
+
+}
