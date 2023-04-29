@@ -22,7 +22,7 @@ void main()
 		exit(1);
 	}
 	// Get I2C device, TSL2561 I2C address is 0x39(57)
-	ioctl(file, I2C_SLAVE, 0x39);
+	ioctl(file, I2C_SLAVE, 0x29);
 
 	// Select control register(0x00 | 0x80)
 	// Power ON mode(0x03)
