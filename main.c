@@ -1,3 +1,10 @@
+/*
+Thomas Leemans: library TSL2561 + code bijeen plakken
+Lauren Debie: library temperatuursensor + alle logs
+Matthias Hendrickx: aantal ledjes on/off door middel van omgevingslicht
+Arne Van den Broeck: Spraak
+*/
+
 #include <stdio.h>
 #include "TSL2561.h"
 #include <time.h>
