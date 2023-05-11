@@ -33,50 +33,49 @@ int main(int argc, char **argv)
 		visibleLightData = getVisibleLight();
 		fullSpectrumData = getFullSpectrumLight();
 		irData = getInfraredLight();
-		printf("data visible light: %f\n", visibleLightData );
-		printf("data infrared light: %f\n", irData);
+		/* printf("data visible light: %f\n", visibleLightData );
+		printf("data infrared light: %f\n", irData); */
 		printf("data full spectrum: %f\n", fullSpectrumData);
+
+		if (fullSpectrumData >= 0 && fullSpectrumData <= 8191)
+		{
+			printf("1 led on\n");
+		}
+
+		if (fullSpectrumData >= 8192 && fullSpectrumData <=  16382)
+		{
+			printf("2 led on\n");
+		}
+
+		if (fullSpectrumData >= 16383 && fullSpectrumData <=  24573)
+		{
+			printf("3 led on\n");
+		}
+
+		if (fullSpectrumData >= 24574 && fullSpectrumData <=  32764)
+		{
+			printf("4 led on\n");
+		}
+
+		if (fullSpectrumData >= 32765 && fullSpectrumData <=  40955)
+		{
+			printf("5 led on\n");
+		}
+
+		if (fullSpectrumData >= 40956 && fullSpectrumData <=  49146)
+		{
+			printf("6 led on\n");
+		}
+
+		if (fullSpectrumData >= 49147 && fullSpectrumData <=  57337)
+		{
+			printf("7 led on\n");
+		}
+
+		if (fullSpectrumData >= 57338)
+		{
+			printf("8 led on\n");
+		}
 		sleep(1);
-
-		if (fullSpectrumData < 8191)
-		{
-
-		}
-
-		else if (8192 > fullSpectrumData && fullSpectrumData <  16382)
-		{
-			
-		}
-
-		else if (16383 > fullSpectrumData && fullSpectrumData <  24573)
-		{
-			
-		}
-
-		else if (24574 > fullSpectrumData && fullSpectrumData <  32764)
-		{
-			
-		}
-
-		else if (32765 > fullSpectrumData && fullSpectrumData <  40955)
-		{
-			
-		}
-
-		else if (40956 > fullSpectrumData && fullSpectrumData <  49146)
-		{
-			
-		}
-
-		else if (49147 > fullSpectrumData && fullSpectrumData <  57337)
-		{
-			
-		}
-
-		else if (fullSpectrumData > 65528)
-		{
-			
-		}
-
 	}
 }
