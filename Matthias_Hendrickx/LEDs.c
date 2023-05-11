@@ -305,6 +305,9 @@ void Leds_Lvl(int level){
 /// @brief This function makes all LEDs from LED 1 to LED 8 flicker 3 times
 /// @param  
 void Leds_Alert(void){
+
+int delay_time = 100000; // Delay in microseconds (100ms)
+
 // LEDs will flicker 3 timer
     for (int i = 0; i < 3; i++) {
         Led_On(LED_D1);
@@ -315,7 +318,7 @@ void Leds_Alert(void){
         Led_On(LED_D6);
         Led_On(LED_D7);
         Led_On(LED_D8);
-        usleep(100000);
+        usleep(delay_time);
 
         Led_Off(LED_D1);
         Led_Off(LED_D2);
@@ -325,7 +328,7 @@ void Leds_Alert(void){
         Led_Off(LED_D6);
         Led_Off(LED_D7);
         Led_Off(LED_D8);
-        usleep(100000);
+        usleep(delay_time);
     }
 }
 
