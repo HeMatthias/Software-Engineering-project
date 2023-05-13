@@ -43,56 +43,56 @@ int main(int argc, char **argv)
 		{
 			Leds_Lvl(1); 
 			printf("1 led on\n");
-			Leds_Unexport();
+			Leds_UnExport();
 		}
 
 		if (fullSpectrumData >= 8192 && fullSpectrumData <=  16382)
 		{
 			Leds_Lvl(2); 
 			printf("2 led on\n");
-			Leds_Unexport();
+			Leds_UnExport();
 		}
 
 		if (fullSpectrumData >= 16383 && fullSpectrumData <=  24573)
 		{
 			Leds_Lvl(3); 
 			printf("3 led on\n");
-			Leds_Unexport();
+			Leds_UnExport();
 		}
 
 		if (fullSpectrumData >= 24574 && fullSpectrumData <=  32764)
 		{
 			Leds_Lvl(4); 
 			printf("4 led on\n");
-			Leds_Unexport();
+			Leds_UnExport();
 		}
 
 		if (fullSpectrumData >= 32765 && fullSpectrumData <=  40955)
 		{
 			Leds_Lvl(5); 
 			printf("5 led on\n");
-			Leds_Unexport();
+			Leds_UnExport();
 		}
 
 		if (fullSpectrumData >= 40956 && fullSpectrumData <=  49146)
 		{
 			Leds_Lvl(6); 
 			printf("6 led on\n");
-			Leds_Unexport();
+			Leds_UnExport();
 		}
 
 		if (fullSpectrumData >= 49147 && fullSpectrumData <=  57337)
 		{
 			Leds_Lvl(7); 
 			printf("7 led on\n");
-			Leds_Unexport();
+			Leds_UnExport();
 		}
 
 		if (fullSpectrumData >= 57338)
 		{
 			Leds_Lvl(8); 
 			printf("8 led on\n");
-			Leds_Unexport();
+			Leds_UnExport();
 		}
 		sleep(1);
 	}
