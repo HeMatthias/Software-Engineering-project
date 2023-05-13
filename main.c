@@ -14,11 +14,12 @@ Arne Van den Broeck: Spraak
 int main(int argc, char **argv)
 {
 	float visibleLightData;
-	float fullSpectrumData;
+	float fullSpectrumData = 0.0;
 	float irData;
 	time_t start_time, current_time;
    	double elapsed_time;
-
+	float oldFullSpectrumData = 0.0;
+	float check;
 	start_time = time(NULL); // starttijd
 	initTSL2561();
 	Leds_Init();
@@ -32,9 +33,13 @@ int main(int argc, char **argv)
 				// voer hier uw andere taak uit
 				start_time = time(NULL); // reset de starttijd
 		}
+		oldFullSpectrumData = fullSpectrumData;
+		
 		visibleLightData = getVisibleLight();
 		fullSpectrumData = getFullSpectrumLight();
 		irData = getInfraredLight();
+
+		check = fullSpectrumData - oldFullSpectrumData;
 		/* printf("data visible light: %f\n", visibleLightData );
 		printf("data infrared light: %f\n", irData); */
 		printf("data full spectrum: %f\n", fullSpectrumData);
@@ -93,6 +98,12 @@ int main(int argc, char **argv)
 			Leds_Lvl(8); 
 			printf("8 led on\n");
 			/* Leds_UnExport(); */
+		}
+		
+		if(check < -16382)
+		{
+			Leds_Alert();
+			printf("ALERT ALERT ALERT\n");
 		}
 		sleep(1);
 	}
