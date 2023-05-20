@@ -9,6 +9,8 @@ Arne Van den Broeck: Spraak
 #include "TSL2561.h"
 #include <time.h>
 #include "LEDs.h"
+#include "temp.h"
+#include "log.c"
 
 
 int main(int argc, char **argv)
@@ -23,6 +25,11 @@ int main(int argc, char **argv)
 	start_time = time(NULL); // starttijd
 	initTSL2561();
 	Leds_Init();
+	init_temp(1);
+	sleep(1);
+	char temp[20];
+	char *temp2;
+
 	void log_light_data(float lightValue) {
 		
 		struct log_data_styl logData;
@@ -52,6 +59,12 @@ int main(int argc, char **argv)
 				// voer hier uw andere taak uit
 				start_time = time(NULL); // reset de starttijd
 				log_light_data(fullSpectrumData);
+				start_time = time(NULL); // reset de starttijd
+				temp2 = temp;
+				temp_read(temp2);
+				printf("waarde is:%s\r\n",temp);
+				log_temp_data(temp);
+
 		}
 		oldFullSpectrumData = fullSpectrumData;
 		
