@@ -23,6 +23,25 @@ int main(int argc, char **argv)
 	start_time = time(NULL); // starttijd
 	initTSL2561();
 	Leds_Init();
+	void log_light_data(float lightValue) {
+		
+		struct log_data_styl logData;
+		time_set(logData.times);
+
+		// Converteer de lichtwaarde naar een string
+		snprintf(logData.licht, sizeof(logData.licht), "%.2f", lightValue);
+
+		// Voeg de loggegevens toe aan de logbestanden
+		log_set(&logData);
+	}
+
+	void log_temp_data(float temp)
+	{
+		struct log_data_styl logData;
+		time_set(logData.times);
+		snprintf(logData.temp, sizeof(logData.temp), "%.2f", temp);
+		log_set(&logData);
+	}
 	while(1)
 	{
 		current_time = time(NULL); // huidige tijd
@@ -32,6 +51,7 @@ int main(int argc, char **argv)
 				printf("1 minuut is verstreken!\n");
 				// voer hier uw andere taak uit
 				start_time = time(NULL); // reset de starttijd
+				log_light_data(fullSpectrumData);
 		}
 		oldFullSpectrumData = fullSpectrumData;
 		
@@ -105,6 +125,7 @@ int main(int argc, char **argv)
 			Leds_Alert();
 			printf("ALERT ALERT ALERT\n");
 		}
+		log_light_data(fullSpectrumData);
 		sleep(1);
 	}
 }
