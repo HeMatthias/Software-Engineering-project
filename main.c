@@ -10,7 +10,7 @@ Arne Van den Broeck: Spraak
 #include <time.h>
 #include "LEDs.h"
 #include "temp.h"
-#include "log.c"
+#include "log.h"
 
 
 int main(int argc, char **argv)
