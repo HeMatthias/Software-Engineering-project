@@ -46,7 +46,7 @@ int main(int argc, char **argv)
 	{
 		struct log_data_styl logData;
 		time_set(logData.times);
-		snprintf(logData.temp, sizeof(logData.temp), "%.2f", temp);
+		snprintf(logData.temp, sizeof(logData.temp), "%.2f", temperature);
 		log_set(&logData);
 	}
 	while(1)
