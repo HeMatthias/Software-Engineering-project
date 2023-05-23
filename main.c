@@ -42,7 +42,7 @@ int main(int argc, char **argv)
 		log_set(&logData);
 	}
 
-	void log_temp_data(float temp)
+	void log_temp_data(float temperature)
 	{
 		struct log_data_styl logData;
 		time_set(logData.times);
