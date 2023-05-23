@@ -42,11 +42,11 @@ int main(int argc, char **argv)
 		log_set(&logData);
 	}
 
-	void log_temp_data(float temperature)
+	void log_temp_data(float temp)
 	{
 		struct log_data_styl logData;
 		time_set(logData.times);
-		snprintf(logData.temp, sizeof(logData.temp), "%.2f", temperature);
+		snprintf(logData.temp, sizeof(logData.temp), "%.2f", temp);
 		log_set(&logData);
 	}
 	while(1)
@@ -63,7 +63,8 @@ int main(int argc, char **argv)
 				temp2 = temp;
 				temp_read(temp2);
 				printf("waarde is:%s\r\n",temp);
-				log_temp_data(temp);
+				float temp3 = atoll(temp2);
+				log_temp_data(temp3);
 
 		}
 		oldFullSpectrumData = fullSpectrumData;
