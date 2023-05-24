@@ -11,8 +11,30 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include "TSL2561.h"
+#include "log.h"
 
 int file;
+
+void no_connection()
+{
+	struct log_data_styl logData;
+	time_set(logData.times);
+
+	snprintf(logData.licht, sizeof(logData.licht), "err: 201");
+	log_set(&logData);
+
+}
+
+void in_out_err()
+{
+	struct log_data_styl logData;
+	time_set(logData.times);
+
+	snprintf(logData.licht, sizeof(logData.licht), "err: 202");
+	log_set(&logData);
+
+}
+
 
 void initTSL2561() 
 {
@@ -21,6 +43,7 @@ void initTSL2561()
 	if((file = open(bus, O_RDWR)) < 0) 
 	{
 		printf("Failed to open the bus. \n");
+		no_connection();
 		exit(1);
 	}
 	// Get I2C device, TSL2561 I2C address is 0x39(57)
@@ -50,6 +73,7 @@ float getVisibleLight()
         if(read(file, data, 4) != 4)
         {
                 printf("Erorr : Input/output Erorr \n");
+		in_out_err();
         }
         else
         {
