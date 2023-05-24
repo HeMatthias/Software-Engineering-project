@@ -30,6 +30,15 @@ int main(int argc, char **argv)
 	char temp[20];
 	char *temp2;
 
+	void light_drop()
+	{
+		struct log_data_styl logData;
+		time_set(logData.times);
+
+		snprintf(logData.licht, sizeof(logData.licht), "err: 101");
+		log_set(&logData);
+	}
+
 	void log_light_data(float lightValue) {
 		
 		struct log_data_styl logData;
@@ -138,6 +147,7 @@ int main(int argc, char **argv)
 		{
 			Leds_Alert();
 			printf("ALERT ALERT ALERT\n");
+			light_drop();
 		}
 		log_light_data(fullSpectrumData);
 		sleep(1);
