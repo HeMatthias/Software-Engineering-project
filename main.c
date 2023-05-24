@@ -72,7 +72,7 @@ int main(int argc, char **argv)
 				temp2 = temp;
 				temp_read(temp2);
 				printf("waarde is:%s\r\n",temp);
-				float temp3 = atoll(temp2);
+				float temp3 = atof(temp2);
 				log_temp_data(temp3);
 
 		}
@@ -149,7 +149,7 @@ int main(int argc, char **argv)
 			printf("ALERT ALERT ALERT\n");
 			light_drop();
 		}
-		log_light_data(fullSpectrumData);
+		//log_light_data(fullSpectrumData);
 		sleep(1);
 	}
 }
