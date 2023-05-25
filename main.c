@@ -12,6 +12,49 @@ Arne Van den Broeck: Spraak
 #include "temp.h"
 #include "log.h"
 
+void light_drop(float temp)
+{
+	struct log_data_styl logData;
+	time_set(logData.times);
+
+	//snprintf(logData.licht, sizeof(logData.licht), "err: 101");
+	sprintf(logData.licht, "err: 101");
+	sprintf(logData.temp, " ");
+
+	log_set(&logData);
+}
+
+void log_light_data(float lightValue) {
+		
+	struct log_data_styl logData;
+	time_set(logData.times);
+
+	// Converteer de lichtwaarde naar een string
+	//snprintf(logData.licht, sizeof(logData.licht), "%.2f", lightValue);
+	sprintf(logData.licht, "%.2f", lightValue);
+
+
+	// Voeg de loggegevens toe aan de logbestanden
+	log_set(&logData);
+}
+
+void log_temp_data(float temp)
+{
+	struct log_data_styl logData;
+	time_set(logData.times);
+	//snprintf(logData.temp, sizeof(logData.temp), "%.2f", temp);
+	sprintf(logData.temp, "%.2f", temp);
+	log_set(&logData);
+}
+
+void log_temp_light(float temp, float light)
+{
+	struct log_data_styl logData;
+	time_set(logData.times);
+	sprintf(logData.temp, "%.2f", temp);
+	sprintf(logData.licht, "%.2f", light);
+	log_set(&logData);
+}
 
 int main(int argc, char **argv)
 {
@@ -30,34 +73,7 @@ int main(int argc, char **argv)
 	char temp[20];
 	char *temp2;
 
-	void light_drop()
-	{
-		struct log_data_styl logData;
-		time_set(logData.times);
-
-		snprintf(logData.licht, sizeof(logData.licht), "err: 101");
-		log_set(&logData);
-	}
-
-	void log_light_data(float lightValue) {
-		
-		struct log_data_styl logData;
-		time_set(logData.times);
-
-		// Converteer de lichtwaarde naar een string
-		snprintf(logData.licht, sizeof(logData.licht), "%.2f", lightValue);
-
-		// Voeg de loggegevens toe aan de logbestanden
-		log_set(&logData);
-	}
-
-	void log_temp_data(float temp)
-	{
-		struct log_data_styl logData;
-		time_set(logData.times);
-		snprintf(logData.temp, sizeof(logData.temp), "%.2f", temp);
-		log_set(&logData);
-	}
+	
 	while(1)
 	{
 		current_time = time(NULL); // huidige tijd
@@ -67,13 +83,14 @@ int main(int argc, char **argv)
 				printf("1 minuut is verstreken!\n");
 				// voer hier uw andere taak uit
 				start_time = time(NULL); // reset de starttijd
-				log_light_data(fullSpectrumData);
+				//log_light_data(fullSpectrumData);
 				start_time = time(NULL); // reset de starttijd
 				temp2 = temp;
 				temp_read(temp2);
 				printf("waarde is:%s\r\n",temp);
 				float temp3 = atof(temp2);
-				log_temp_data(temp3);
+				//log_temp_data(temp3);
+				log_temp_light(temp3, fullSpectrumData);
 
 		}
 		oldFullSpectrumData = fullSpectrumData;
@@ -147,7 +164,12 @@ int main(int argc, char **argv)
 		{
 			Leds_Alert();
 			printf("ALERT ALERT ALERT\n");
-			light_drop();
+			temp2 = temp;
+			temp_read(temp2);
+			printf("waarde is:%s\r\n",temp);
+			float temp3 = atof(temp2);
+
+			light_drop(temp3);
 		}
 		//log_light_data(fullSpectrumData);
 		sleep(1);
