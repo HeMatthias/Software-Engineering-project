@@ -20,7 +20,8 @@ void no_connection()
 	struct log_data_styl logData;
 	time_set(logData.times);
 
-	snprintf(logData.licht, sizeof(logData.licht), "err: 201");
+	sprintf(logData.licht, sizeof(logData.licht), "err: 201");
+	sprintf(logData.temp, sizeof(logData.temp), " ");
 	log_set(&logData);
 
 }
@@ -30,7 +31,8 @@ void in_out_err()
 	struct log_data_styl logData;
 	time_set(logData.times);
 
-	snprintf(logData.licht, sizeof(logData.licht), "err: 202");
+	sprintf(logData.licht, sizeof(logData.licht), "err: 202");
+	sprintf(logData.temp, sizeof(logData.temp), " ");
 	log_set(&logData);
 
 }
