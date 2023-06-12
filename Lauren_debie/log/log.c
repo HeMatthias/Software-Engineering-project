@@ -126,7 +126,7 @@ void log_set(struct log_data_styl *data)
                         schrijf_log = 3;
                 }
 	}
-	printf("schrijft:%d",schrijf_log);
+	printf("schrijft:%d\r\n",schrijf_log);
 	if(schrijf_log = 1)
 	{
 		if(log_f_1.size > max_size)
