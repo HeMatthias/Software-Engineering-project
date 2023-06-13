@@ -17,7 +17,7 @@ Temperatuursensor:
 - Nauwkeurigheid: ±0,5 °C
 
 Lichtsensor:
-- Meetbereik: 1 lux tot 65535 lux
+- Meetbereik: 1 lux tot 20.000 lux
 
 ### Foutafhandeling
 Als er een fout optreedt bij een van de sensoren, zal het apparaat blijven meten, maar een foutmelding weergeven bij de betreffende meting die niet werkt.
