@@ -13,11 +13,10 @@ Dit is een kort overzicht van de vereisten voor het ontwikkelen van een toestel 
 
 ### Specificaties
 Temperatuursensor:
-Meetbereik: 263,15 K tot 323,15 K
-Nauwkeurigheid: ±0,5 °C
-
+- Meetbereik: 263,15 K tot 323,15 K
+- Nauwkeurigheid: ±0,5 °C
 Lichtsensor:
-Meetbereik: 1 lux tot 20.000 lux
+- Meetbereik: 1 lux tot 20.000 lux
 
 ### Foutafhandeling
 Als er een fout optreedt bij een van de sensoren, zal het apparaat blijven meten, maar een foutmelding weergeven bij de betreffende meting die niet werkt.
