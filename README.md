@@ -15,6 +15,7 @@ Dit is een kort overzicht van de vereisten voor het ontwikkelen van een toestel 
 Temperatuursensor:
 Meetbereik: 263,15 K tot 323,15 K
 Nauwkeurigheid: ±0,5 °C
+
 Lichtsensor:
 Meetbereik: 1 lux tot 20.000 lux
 
